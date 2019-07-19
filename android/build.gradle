@@ -18,6 +18,7 @@ allprojects {
     subprojects {
         project.configurations.all {
             resolutionStrategy.eachDependency { details ->
+                // not sure why the first condition has been added. AndroidX is suppose to replace the support libraries
                 if (details.requested.group == 'com.android.support'
                         && !details.requested.name.contains('multidex') ) {
                     details.useVersion "27.1.0"
